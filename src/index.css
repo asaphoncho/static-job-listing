@@ -71,6 +71,10 @@ body{
   border-bottom-right-radius: 0.25rem;
   font-size: 1.25rem;
   font-weight: 700;
+  cursor: pointer;
+}
+.remove-btn:hover{
+  background-color: hsl(180, 14%, 20%);
 }
 .clear-btn{
   border: none;
