@@ -12,15 +12,74 @@ body{
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  position: relative;
 }
 .header{
   width: 100%;
-  height: 10rem;
+  height: 9.75rem;
   background-image: url(./images/bg-header-desktop.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-color: hsl(180, 29%, 50%);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+}
+.filter-section{
+  position: absolute;
+  width: 70%;
+  height: 44px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem 1rem 3rem;
+  margin-top: 7.5rem;
+  z-index: 1;
+  box-shadow: 0px 8px 8px 0px hsla(180, 15%, 43%, 0.245);
+}
+.added-tags{
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  column-gap: 1rem;
+}
+.filtertag{
+  width: fit-content;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.remove-btn{
+  width: fit-content;
+  max-height: 35.2px;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  background-color: hsl(180, 29%, 50%);
+  color: hsl(180, 31%, 95%);
+  border: none;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.clear-btn{
+  border: none;
+  font-size: 15px;
+  color: hsl(180, 29%, 50%);
+  text-decoration: underline;
+  font-family:"Outfit", serif;
+  font-weight: 700;
+  cursor: pointer;
 }
 .roles-container{
   width: 100%;
@@ -90,7 +149,7 @@ body{
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   background-color: hsl(180, 29%, 50%);
   border-radius: 1rem;
-  color: #fff;
+  color: hsl(180, 85%, 95%);
   font-weight: 700;
   font-family:"Outfit", serif;
   font-size: 15px;
@@ -102,7 +161,7 @@ body{
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   background-color: hsl(180, 14%, 20%);
   border-radius: 1rem;
-  color: #fff;
+  color: hsl(180, 31%, 95%);
   font-weight: 700;
   font-family:"Outfit", serif;
   font-size: 15px;
@@ -152,4 +211,10 @@ body{
   font-size: 15px;
   font-weight: 700;
   font-family: "Outfit", serif;
+  cursor: pointer;
+  border: none;
+}
+.tag:hover{
+  background-color: hsl(180, 29%, 50%);
+  color: hsl(180, 85%, 95%);
 }
