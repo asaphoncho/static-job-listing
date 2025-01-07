@@ -6,25 +6,34 @@ function App() {
   let filteredData;
   const [roles, setRoles] = useState(data);
   const [filterTags, setFilterTags] = useState([]);
-  if (filterTags > 0) {
-    filteredData = data.map(d.role.includes(filterTags));
-    setRoles(filteredData);
-  }
+  const [filterState, setFilterState] = useState(false);
+
   function handleTag(event) {
     const tag = event.target.textContent;
     setFilterTags((f) => [...f, tag]);
+    if (window.innerWidth < 500 && !filterState) {
+      setFilterState(true);
+    }
   }
   function handleRemove(index) {
     setFilterTags((f) => filterTags.filter((_, i) => i !== index));
   }
   function handleClear() {
     setFilterTags([]);
+    setFilterState(false);
   }
 
   return (
     <>
       <div className="main-section">
-        <div className="filter-section">
+        <div
+          className="filter-section"
+          style={
+            window.innerWidth < 500 && filterState === false
+              ? { display: "none" }
+              : { display: "flexbox" }
+          }
+        >
           <div className="added-tags">
             {filterTags.map((ft, index) => (
               <div key={index} className="filtertag">
@@ -41,7 +50,7 @@ function App() {
                   className="remove-btn"
                   onClick={() => handleRemove(index)}
                 >
-                  <i class="fa-solid fa-xmark"></i>
+                  <i className="fa-solid fa-xmark"></i>
                 </button>
               </div>
             ))}
@@ -51,7 +60,14 @@ function App() {
           </button>
         </div>
         <div className="header"></div>
-        <div className="roles-container">
+        <div
+          className="roles-container"
+          style={
+            filterState && window.innerWidth < 500
+              ? { marginTop: "2.5rem" }
+              : null
+          }
+        >
           {roles
             .filter((role) => {
               const tags = [
@@ -72,10 +88,18 @@ function App() {
                     : null
                 }
               >
-                <div className="first-part">
+                {window.innerWidth <= 500 ? (
                   <div className="logo-div">
                     {<img src={role.logo} alt={role.company + " logo"} />}
                   </div>
+                ) : null}
+                <div className="first-part">
+                  {window.innerWidth > 500 ? (
+                    <div className="logo-div">
+                      {<img src={role.logo} alt={role.company + " logo"} />}
+                    </div>
+                  ) : null}
+
                   <div className="role-details">
                     <div className="role-headings">
                       <span>{role.company}</span>
