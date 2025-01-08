@@ -292,6 +292,7 @@ body {
     flex-wrap: wrap;
     column-gap: 0.5rem;
     row-gap: 0.5rem;
+    width: 80%;
   }
   .filter-section {
     position: absolute;
