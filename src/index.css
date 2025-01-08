@@ -290,13 +290,14 @@ body {
   }
   .added-tags {
     flex-wrap: wrap;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
   }
   .filter-section {
     position: absolute;
-    width: 70%;
+    width: 79%;
     height: auto;
     padding: 2rem 1rem 2rem 1rem;
     font-size: 0.75rem;
-    column-gap: 0.5rem;
   }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import data from "./data.json";
 
@@ -7,6 +7,7 @@ function App() {
   const [roles, setRoles] = useState(data);
   const [filterTags, setFilterTags] = useState([]);
   const [filterState, setFilterState] = useState(false);
+  const filterTagRef = useRef();
 
   function handleTag(event) {
     const tag = event.target.textContent;
@@ -18,6 +19,7 @@ function App() {
         setFilterState(true);
       }
     }
+    console.log(filterTagRef.current.offsetHeight);
   }
   function handleRemove(index) {
     if (filterTags.length <= 1) {
@@ -35,10 +37,11 @@ function App() {
       <div className="main-section">
         <div
           className="filter-section"
+          ref={filterTagRef}
           style={
             window.innerWidth < 500 && filterState === false
               ? { display: "none" }
-              : { display: "flex", flexWrap: "wrap" }
+              : { display: "flex" }
           }
         >
           <div className="added-tags">
@@ -71,7 +74,7 @@ function App() {
           className="roles-container"
           style={
             filterState && window.innerWidth < 500
-              ? { marginTop: "2.5rem" }
+              ? { marginTop: `${filterTagRef.current.offsetHeight + 56}px` }
               : null
           }
         >
