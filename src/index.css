@@ -267,6 +267,7 @@ body {
     height: auto;
     width: auto;
     flex-wrap: wrap;
+    row-gap: 1rem;
   }
   .position-title {
     font-size: 1.5rem;
