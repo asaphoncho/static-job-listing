@@ -288,4 +288,15 @@ body {
     padding-bottom: 1.5rem;
     border-bottom: 1px hsl(180, 8%, 52%) solid;
   }
+  .added-tags {
+    flex-wrap: wrap;
+  }
+  .filter-section {
+    position: absolute;
+    width: 70%;
+    height: auto;
+    padding: 2rem 1rem 2rem 1rem;
+    font-size: 0.75rem;
+    column-gap: 0.5rem;
+  }
 }

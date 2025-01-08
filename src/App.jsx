@@ -10,12 +10,19 @@ function App() {
 
   function handleTag(event) {
     const tag = event.target.textContent;
-    setFilterTags((f) => [...f, tag]);
-    if (window.innerWidth < 500 && !filterState) {
-      setFilterState(true);
+    if (filterTags.includes(tag)) {
+      null;
+    } else {
+      setFilterTags((f) => [...f, tag]);
+      if (window.innerWidth < 500 && !filterState) {
+        setFilterState(true);
+      }
     }
   }
   function handleRemove(index) {
+    if (filterTags.length <= 1) {
+      setFilterState(false);
+    }
     setFilterTags((f) => filterTags.filter((_, i) => i !== index));
   }
   function handleClear() {
@@ -31,7 +38,7 @@ function App() {
           style={
             window.innerWidth < 500 && filterState === false
               ? { display: "none" }
-              : { display: "flexbox" }
+              : { display: "flex", flexWrap: "wrap" }
           }
         >
           <div className="added-tags">
