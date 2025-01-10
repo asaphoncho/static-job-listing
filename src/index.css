@@ -302,4 +302,10 @@ body {
     padding: 2rem 1rem 2rem 1rem;
     font-size: 0.75rem;
   }
+  .new-label {
+    font-size: 8px;
+  }
+  .featured-label {
+    font-size: 8px;
+  }
 }
